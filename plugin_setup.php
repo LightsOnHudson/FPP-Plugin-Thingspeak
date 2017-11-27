@@ -103,7 +103,7 @@ echo "ENABLE PLUGIN: ";
 
 //if($ENABLED== 1 || $ENABLED == "on") {
 //		echo "<input type=\"checkbox\" checked name=\"ENABLED\"> \n";
-PrintSettingCheckbox($pluginName." Plugin", "ENABLED", $restart = 0, $reboot = 0, "ON", "OFF", $pluginName = $pluginName, $callbackName = "");
+PrintSettingCheckbox($pluginName." Plugin", "ENABLED", $restart = 1, $reboot = 0, "ON", "OFF", $pluginName = $pluginName, $callbackName = "");
 //	} else {
 //		echo "<input type=\"checkbox\"  name=\"ENABLED\"> \n";
 //}
