@@ -40,7 +40,7 @@ $ENABLED = $pluginSettings['ENABLED'];
 
 
 
-$ENABLED="";
+
 
 
 if(trim(strtoupper($ENABLED)) != "ON" || $ENABLED != "1" ) {
