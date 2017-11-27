@@ -149,9 +149,7 @@ function processCallback($argv) {
 	global $DEBUG,$pluginName;
 	
 	
-	if($DEBUG)
-		print_r($argv);
-	//argv0 = program
+	
 	
 	//argv2 should equal our registration // need to process all the rgistrations we may have, array??
 	//argv3 should be --data
