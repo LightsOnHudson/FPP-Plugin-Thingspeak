@@ -146,7 +146,7 @@ function logEntry($data,$logLevel=1,$sourceFile, $sourceLine) {
 
 
 function processCallback($argv) {
-	global $DEBUG,$pluginName;
+	global $DEBUG,$pluginName, $API_TOKEN, $THINGSPEAK_URL;
 	
 	
 	
@@ -207,25 +207,44 @@ function processCallback($argv) {
 						case "both":
 								
 							if($DEBUG) {
-								logEntry("SongTitle : ".$obj->{'title'});
-								logEntry("SongArtist : ".$obj->{'artist'});
+								logEntry("SongTitle : ".$obj->{'Media'});
+								
+								logEntry("Sequence : ".$obj->{'Sequence'});
+								
 								
 							}
 							
-						logEntry("We do not support type media/both at this time");
-						//	logEntry("MEDIA ENTRY: EXTRACTING TITLE AND ARTIST");
-								
-						//	$songTitle = $obj->{'title'};
-						//	$songArtist = $obj->{'artist'};
-							//	if($songArtist != "") {
+							$SONG_TITLE = $obj->{'Media'};
+							$SEQUENCE_NAME = $obj->{'Sequence'};
+							
+							//send to API THINGSPEAK
+							$PROVIDER_CMD = "https://www.duckdns.org/update?domains=".$DNS_HOSTNAME."&token=".$API_TOKEN."&ip=".$IP_ADDRESS;
+							//	$PROVIDER_CMD = "https://duckdns.org/update/".$DNS_HOSTNAME."/".$API_TOKEN."/".$IP_ADDRESS;
 						
+							
 						
-						//	sendMessage($songTitle, $songArtist);
-							//exit(0);
+				
+							$UPDATE_THINGSPEAK_CMD = $THINGSPEAK_URL . "/update?api_key=".$API_TOKEN."&field1=";
+							$UPDATE_THINGSPEAK_CMD .= $SONG_TITLE;
+							
+							
+							$ch = curl_init ();
+							curl_setopt ( $ch, CURLOPT_URL,trim($UPDATE_THINGSPEAK_CMD));
+							
+							curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
+							curl_setopt ( $ch, CURLOPT_WRITEFUNCTION, 'do_nothing' );
+							curl_setopt ( $ch, CURLOPT_VERBOSE, false );
+							
+							$result = curl_exec ( $ch );
+							logEntry ( "Curl result: " . $result ); // $result;
+							curl_close ( $ch );
+										
+						
 						
 							break;
 	
-					default:
+				default:
+						
 						logEntry("We do not understand: type: ".$obj->{'type'}. " at this time");
 						exit(0);
 						break;

@@ -34,7 +34,7 @@ if (file_exists($pluginConfigFile)) {
 $API_TOKEN = urldecode($pluginSettings["API_TOKEN"]);
 $DEBUG = urldecode($pluginSettings['DEBUG']);
 
-
+$THINGSPEAK_URL = "https://api.thingspeak.com";
 
 $ENABLED = urldecode($pluginSettings['ENABLED']);
 
