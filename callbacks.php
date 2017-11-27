@@ -43,7 +43,7 @@ $ENABLED = urldecode($pluginSettings['ENABLED']);
 
 
 
-if(trim(strtoupper($ENABLED)) != "ON" || $ENABLED != "1" ) {
+if($ENABLED !== "ON") {
 	logEntry("Plugin Status: DISABLED Please enable in Plugin Setup to use & Restart FPPD Daemon");
 
 	exit(0);
