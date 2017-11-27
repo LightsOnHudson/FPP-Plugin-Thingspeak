@@ -41,7 +41,7 @@ if(isset($_POST['submit']))
 	//$DNS_HOSTNAME = urldecode($_POST["DNS_HOSTNAME"]);
 	$API_TOKEN = urldecode($_POST["API_TOKEN"]);
 	//$ENABLED = urldecode($_POST["ENABLED"]);
-
+	WriteSettingToFile("API_TOKEN",urlencode($_POST["API_TOKEN"]),$pluginName);
 }
 
 sleep(1);
