@@ -157,7 +157,14 @@ function processCallback($argv) {
 	//argv3 should be --data
 	//argv4 should be json data
 	
+	$JSON_DATA = json_decode($argv);
+	
+	$MEDIA = $JSON_DATA['Media'];
+	logEntry("MEDIA from json: ".$MEDIA);
+	
 	$registrationType = $argv[2];
+	
+	
 	$data =  $argv[4];
 	
 	logEntry("PROCESSING CALLBACK: ".$registrationType);
