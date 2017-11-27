@@ -206,6 +206,12 @@ function processCallback($argv) {
 						
 						case "both":
 								
+							if($DEBUG) {
+								logEntry("SongTitle : ".$obj->{'title'});
+								logEntry("SongArtist : ".$obj->{'artist'});
+								
+							}
+							
 						logEntry("We do not support type media/both at this time");
 						//	logEntry("MEDIA ENTRY: EXTRACTING TITLE AND ARTIST");
 								
