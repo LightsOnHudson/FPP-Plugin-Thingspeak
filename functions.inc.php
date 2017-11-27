@@ -194,8 +194,8 @@ function processCallback($argv) {
 						//$songArtist = $obj->{'artist'};
 	
 						if($DEBUG) {
-							logEntry("SongTitle : ".$obj->{'title'});
-							logEntry("SongArtist : ".$obj->{'artist'});
+							logEntry("SongTitle : ".$obj->{'Media'});
+							logEntry("Sequence : ".$obj->{'Sequence'});
 							
 						}
 	
