@@ -26,7 +26,7 @@ $pluginConfigFile = $settings['configDirectory'] . "/plugin." .$pluginName;
 if (file_exists($pluginConfigFile)) {
 	$pluginSettings = parse_ini_file($pluginConfigFile);
 	
-	logEntry("Reading in settings from file for: ".$pluginName);
+	logEntry("Reading in settings from file: ".$pluginConfigFile." for: ".$pluginName);
 	
 }
 
@@ -36,7 +36,7 @@ $DEBUG = urldecode($pluginSettings['DEBUG']);
 
 
 
-$ENABLED = $pluginSettings['ENABLED'];
+$ENABLED = urldecode($pluginSettings['ENABLED']);
 
 
 
