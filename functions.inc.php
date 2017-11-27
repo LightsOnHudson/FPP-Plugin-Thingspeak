@@ -188,6 +188,11 @@ function processCallback($argv) {
 						//$songTitle = $obj->{'title'};
 						//$songArtist = $obj->{'artist'};
 	
+						if($DEBUG) {
+							logEntry("SongTitle : ".$obj->{'title'});
+							logEntry("SongArtist : ".$obj->{'artist'});
+							
+						}
 	
 						//sendMessage($songTitle, $songArtist);
 						//exit(0);

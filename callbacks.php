@@ -39,7 +39,10 @@ $DEBUG = urldecode($pluginSettings['DEBUG']);
 $ENABLED = urldecode($pluginSettings['ENABLED']);
 
 
-
+if($DEBUG) {
+	logEntry("DEBUG IS ENABLED IN CONFIG FILE");
+	
+}
 
 
 
