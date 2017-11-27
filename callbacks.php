@@ -21,11 +21,15 @@ $myPid = getmypid();
 //$DEBUG=true;
 $logFile = $settings['logDirectory']."/".$pluginName.".log";
 
+//re-read the settings so they are read in
+$pluginConfigFile = $settings['configDirectory'] . "/plugin." .$pluginName;
+if (file_exists($pluginConfigFile)) {
+	$pluginSettings = parse_ini_file($pluginConfigFile);
+	
+	logEntry("Reading in settings from file for: ".$pluginName);
+	
+}
 
-
-//	Hostname on DuckDNS
-$DNS_HOSTNAME = urldecode($pluginSettings['DNS_HOSTNAME']);
-//	$ENABLED = urldecode(ReadSettingFromFile("ENABLED",$pluginName));
 
 $API_TOKEN = urldecode($pluginSettings["API_TOKEN"]);
 $DEBUG = urldecode($pluginSettings['DEBUG']);
